@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Winai Phanarkat - Full-Stack Developer</title>
+    <style>
+        /* --- General Styles & Mobile First --- */
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #28a745;
+            --dark-color: #212529;
+            --light-color: #f8f9fa;
+            --text-color: #e9ecef;
+            --card-bg: #343a40;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--dark-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            display: flex;
+            justify-content: flex-end;
+            padding: 10px 20px;
+        }
+
+        #lang-toggle {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .profile-section {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid var(--primary-color);
+        }
+
+        h1 {
+            color: white;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: var(--light-color);
+            margin-bottom: 20px;
+        }
+        
+        h2 {
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .section-title-wrapper {
+            text-align: center;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        .service-item {
+            background-color: var(--card-bg);
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #555;
+            background-color: #555;
+            color: white;
+            box-sizing: border-box;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 10px;
+        }
+
+        .btn-primary { background-color: var(--primary-color); }
+        .btn-secondary { background-color: var(--secondary-color); }
+        .btn-info { background-color: #17a2b8; }
+        .btn-worldcoin { background-color: #1e244d; color: white;}
+
+
+        .contact-info p, .payment-info p {
+            margin: 5px 0;
+            font-size: 1.1rem;
+        }
+        
+        .contact-info a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        /* --- Desktop Styles --- */
+        @media (min-width: 768px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .contact-payment-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <button id="lang-toggle">ไทย</button>
+    </header>
+
+    <div class="container">
+        
+        <section class="profile-section">
+            <img src="https://avatars.githubusercontent.com/u/8987489?v=4" alt="Winai Phanarkat Profile Picture" class="profile-pic">
+            <h1 data-lang-key="name">Winai Phanarkat</h1>
+            <p class="tagline" data-lang-key="tagline">Full-Stack Developer & Crypto Specialist</p>
+        </section>
+
+        <section id="services">
+            <div class="section-title-wrapper">
+                <h2 data-lang-key="services_title">My Services</h2>
+            </div>
+            <div class="card">
+                <p data-lang-key="services_intro" style="text-align: center; font-style: italic;">
+                    Crafting innovative solutions for all platforms with special discounts. We accept both fiat and digital currencies.
+                </p>
+                <div class="services-grid">
+                    <div class="service-item" data-lang-key="service_apps">Cross-Platform App Development</div>
+                    <div class="service-item" data-lang-key="service_websites">Website & Web App Development</div>
+                    <div class="service-item" data-lang-key="service_database">Database & Admin Panel Systems</div>
+                    <div class="service-item" data-lang-key="service_crypto">Cryptocurrency & Token Creation</div>
+                    <div class="service-item" data-lang-key="service_worldcoin">World Coin Account Integration</div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="worldcoin-users">
+            <div class="section-title-wrapper">
+                <h2 data-lang-key="worldcoin_title">For World ID Users</h2>
+            </div>
+             <div class="card">
+                <p data-lang-key="worldcoin_intro">Connect your World ID to get started. Payment via Worldcoin (WLD) is available.</p>
+                
+                <div id="world-id-container">
+                    <button class="btn btn-worldcoin" data-lang-key="worldcoin_connect_btn">Connect with World ID (Example)</button>
+                    <p style="font-size:0.8em; text-align:center; margin-top:5px;" data-lang-key="worldcoin_dev_note">(Developer Note: This is a placeholder. The real button requires the World ID SDK.)</p>
+                </div>
+
+                <form id="worldcoin-contact-form" style="margin-top: 20px;">
+                    <h3 data-lang-key="contact_us" style="text-align:center;">Contact Us</h3>
+                    <div class="form-group">
+                        <label for="wc-name" data-lang-key="form_name">Name</label>
+                        <input type="text" id="wc-name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="wc-subject" data-lang-key="form_subject">Subject</label>
+                        <input type="text" id="wc-subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="wc-phone" data-lang-key="form_phone">Contact Number</label>
+                        <input type="text" id="wc-phone" name="phone" required>
+                    </div>
+                    <p data-lang-key="worldcoin_payment_note" style="text-align: center;">After making a payment with Worldcoin, please notify us via LINE or Phone.</p>
+                </form>
+             </div>
+        </section>
+
+
+        <section id="contact">
+            <div class="section-title-wrapper">
+                 <h2 data-lang-key="contact_title">Consultation & Contact</h2>
+            </div>
+            <div class="contact-payment-grid">
+                <div class="card">
+                    <h3 data-lang-key="free_consultation">Free Consultation</h3>
+                    <form id="general-contact-form">
+                        <div class="form-group">
+                            <label for="name" data-lang-key="form_name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject" data-lang-key="form_subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" data-lang-key="form_phone">Contact Number</label>
+                            <input type="text" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" data-lang-key="form_email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary" data-lang-key="form_submit">Send Message</button>
+                    </form>
+                    <hr style="border-color: #555; margin: 25px 0;">
+                    <div class="contact-info">
+                        <p><strong><span data-lang-key="contact_phone">Phone</span>:</strong> 092-653-3228</p>
+                        <a href="tel:0926533228" class="btn btn-secondary" data-lang-key="call_now">Call Now</a>
+                        
+                        <p style="margin-top:15px;"><strong>Email:</strong> winayo@gmail.com</p>
+
+                        <p style="margin-top:15px;"><strong>LINE ID:</strong> 0926533228</p>
+                        <a href="https://line.me/ti/p/~0926533228" target="_blank" class="btn btn-secondary" data-lang-key="add_line">Add LINE</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 data-lang-key="payment_title">Payment Information</h3>
+                    <div class="payment-info">
+                        <p data-lang-key="payment_method">For hiring or service payment:</p>
+                        <div style="background-color:#e9ecef; color:#212529; padding: 15px; border-radius: 5px; margin: 15px 0;">
+                            <p><strong><span data-lang-key="bank_name">Bank</span>:</strong> Kasikorn Bank</p>
+                            <p><strong><span data-lang-key="account_no">Account No.</span>:</strong> 0201347300</p>
+                            <p><strong><span data-lang-key="account_name">Account Name</span>:</strong> Winai Phanarkat</p>
+                        </div>
+                        <button id="save-info-btn" class="btn btn-info" data-lang-key="save_info_btn">Save My Contact & Payment Info</button>
+                        <p style="font-size: 0.9em; margin-top: 10px;" data-lang-key="save_info_prompt">
+                            (Please press this button to easily copy or screenshot the information for your records.)
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <footer style="text-align: center; padding: 30px 0; font-size: 0.9em;">
+            <p>&copy; 2025 Winai Phanarkat. All Rights Reserved.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            const translations = {
+                en: {
+                    // Page Title & Header
+                    page_title: "Winai Phanarkat - Full-Stack Developer",
+                    lang_toggle_btn: "ไทย",
+                    // Profile
+                    name: "Winai Phanarkat",
+                    tagline: "Full-Stack Developer & Crypto Specialist",
+                    // Services
+                    services_title: "My Services",
+                    services_intro: "Crafting innovative solutions for all platforms with special discounts. We accept both fiat and digital currencies.",
+                    service_apps: "Cross-Platform App Development",
+                    service_websites: "Website & Web App Development",
+                    service_database: "Database & Admin Panel Systems",
+                    service_crypto: "Cryptocurrency & Token Creation",
+                    service_worldcoin: "World Coin Account Integration",
+                    // Worldcoin
+                    worldcoin_title: "For World ID Users",
+                    worldcoin_intro: "Connect your World ID to get started. Payment via Worldcoin (WLD) is available.",
+                    worldcoin_connect_btn: "Connect with World ID (Example)",
+                    worldcoin_dev_note: "(Developer Note: This is a placeholder. The real button requires the World ID SDK.)",
+                    worldcoin_payment_note: "After making a payment with Worldcoin, please notify us via LINE or Phone.",
+                    // Contact
+                    contact_title: "Consultation & Contact",
+                    free_consultation: "Free Consultation",
+                    contact_us: "Contact Us",
+                    form_name: "Name",
+                    form_subject: "Subject",
+                    form_phone: "Contact Number",
+                    form_email: "Email",
+                    form_submit: "Send Message",
+                    contact_phone: "Phone",
+                    call_now: "Call Now",
+                    add_line: "Add LINE",
+                    // Payment
+                    payment_title: "Payment Information",
+                    payment_method: "For hiring or service payment:",
+                    bank_name: "Bank",
+                    account_no: "Account No.",
+                    account_name: "Account Name",
+                    save_info_btn: "Save My Contact & Payment Info",
+                    save_info_prompt: "(Please press this button to easily copy or screenshot the information for your records.)",
+                },
+                th: {
+                    // Page Title & Header
+                    page_title: "วินัย พานาคัท - นักพัฒนา Full-Stack",
+                    lang_toggle_btn: "EN",
+                    // Profile
+                    name: "วินัย พานาคัท",
+                    tagline: "นักพัฒนา Full-Stack และผู้เชี่ยวชาญด้านคริปโต",
+                    // Services
+                    services_title: "บริการของเรา",
+                    services_intro: "รับสร้างสรรค์โซลูชันสำหรับทุกแพลตฟอร์มพร้อมส่วนลดพิเศษ รับชำระทั้งเงิน Fiat และเงินดิจิทัล",
+                    service_apps: "รับทำแอปพลิเคชันทุกแพลตฟอร์ม",
+                    service_websites: "รับทำเว็บไซต์และเว็บแอปพลิเคชัน",
+                    service_database: "รับทำระบบฐานข้อมูลและหลังบ้าน (Admin)",
+                    service_crypto: "รับสร้างเหรียญคริปโตเคอเรนซี",
+                    service_worldcoin: "รับเชื่อมต่อกับบัญชี World Coin",
+                    // Worldcoin
+                    worldcoin_title: "สำหรับผู้ใช้งาน World ID",
+                    worldcoin_intro: "เชื่อมต่อ World ID ของคุณเพื่อเริ่มต้น สามารถชำระเงินผ่าน Worldcoin (WLD) ได้",
+                    worldcoin_connect_btn: "เชื่อมต่อด้วย World ID (ตัวอย่าง)",
+                    worldcoin_dev_note: "(หมายเหตุสำหรับนักพัฒนา: นี่คือปุ่มตัวอย่าง การใช้งานจริงต้องใช้ World ID SDK)",
+                    worldcoin_payment_note: "หลังจากชำระเงินด้วย Worldcoin แล้ว กรุณาแจ้งทาง LINE หรือโทรศัพท์",
+                    // Contact
+                    contact_title: "ปรึกษาและติดต่อเรา",
+                    free_consultation: "ปรึกษาฟรี",
+                    contact_us: "ติดต่อเรา",
+                    form_name: "ชื่อ",
+                    form_subject: "เรื่องที่ต้องการติดต่อ",
+                    form_phone: "เบอร์ติดต่อ",
+                    form_email: "อีเมล",
+                    form_submit: "ส่งข้อความ",
+                    contact_phone: "เบอร์โทร",
+                    call_now: "โทรเลย",
+                    add_line: "เพิ่มเพื่อน LINE",
+                    // Payment
+                    payment_title: "ข้อมูลการชำระเงิน",
+                    payment_method: "สำหรับการจ้างงานหรือชำระค่าบริการ:",
+                    bank_name: "ธนาคาร",
+                    account_no: "เลขที่บัญชี",
+                    account_name: "ชื่อบัญชี",
+                    save_info_btn: "บันทึกข้อมูลติดต่อและชำระเงิน",
+                    save_info_prompt: "(กรุณากดปุ่มนี้เพื่อคัดลอกหรือถ่ายภาพหน้าจอข้อมูลเก็บไว้)",
+                }
+            };
+
+            const langToggleButton = document.getElementById('lang-toggle');
+            const translatableElements = document.querySelectorAll('[data-lang-key]');
+
+            function switchLanguage(lang) {
+                // Update text content
+                translatableElements.forEach(el => {
+                    const key = el.getAttribute('data-lang-key');
+                    if (translations[lang] && translations[lang][key]) {
+                        el.textContent = translations[lang][key];
+                    }
+                });
+
+                // Update document language and title
+                document.documentElement.lang = lang;
+                document.title = translations[lang].page_title;
+                
+                // Update toggle button text
+                langToggleButton.textContent = translations[lang].lang_toggle_btn;
+            }
+
+            langToggleButton.addEventListener('click', () => {
+                const currentLang = document.documentElement.lang;
+                const newLang = currentLang === 'en' ? 'th' : 'en';
+                switchLanguage(newLang);
+            });
+
+            // Set initial language
+            switchLanguage('en');
+
+            // Save Info Button functionality
+            const saveInfoBtn = document.getElementById('save-info-btn');
+            saveInfoBtn.addEventListener('click', () => {
+                const infoTextEn = `
+                --- Contact & Payment Info ---
+                Name: Winai Phanarkat
+                Phone: 092-653-3228
+                LINE ID: 0926533228
+                Email: winayo@gmail.com
+                
+                Bank: Kasikorn Bank
+                Account No: 0201347300
+                Account Name: Winai Phanarkat
+                
+                Please take a screenshot of this information.
+                `;
+                const infoTextTh = `
+                --- ข้อมูลติดต่อและชำระเงิน ---
+                ชื่อ: วินัย พานาคัท
+                เบอร์โทร: 092-653-3228
+                LINE ID: 0926533228
+                อีเมล: winayo@gmail.com
+                
+                ธนาคาร: กสิกรไทย
+                เลขที่บัญชี: 0201347300
+                ชื่อบัญชี: วินัย พานาคัท
+                
+                กรุณาถ่ายภาพหน้าจอเพื่อบันทึกข้อมูล
+                `;
+                
+                const currentLang = document.documentElement.lang;
+                alert(currentLang === 'en' ? infoTextEn.trim() : infoTextTh.trim());
+            });
+
+        });
+    </script>
+</body>
+</html>
